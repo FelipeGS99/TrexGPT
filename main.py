@@ -2,6 +2,7 @@ import openai
 import telebot
 from dotenv import load_dotenv
 import os
+from time import sleep
 
 load_dotenv()
 
@@ -24,4 +25,10 @@ def responder_mensagem(message):
     lista_mensagens.append({"role": "assistant", "content": resposta_chatgpt})
     
     bot.send_message(chat_id, resposta_chatgpt)
-bot.polling(interval=3, timeout=60)
+
+while True:
+    try:
+        bot.polling(interval=3, timeout=20)
+    except Exception as e:
+        print(f"Erro: {e}")
+        sleep(5)
