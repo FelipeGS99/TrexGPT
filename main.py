@@ -24,4 +24,4 @@ def responder_mensagem(message):
     lista_mensagens.append({"role": "assistant", "content": resposta_chatgpt})
     
     bot.send_message(chat_id, resposta_chatgpt)
-bot.polling()
+bot.polling(interval=3, timeout=60)
