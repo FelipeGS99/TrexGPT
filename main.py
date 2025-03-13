@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-print('Testandoo')
 
 openai.api_key = os.getenv('openai_key')
 bot = telebot.TeleBot(os.getenv('telegram_key'))
